@@ -8,8 +8,9 @@ import google.generativeai as genai
 
 # Configure Gemini API
 # In a production environment, use os.environ.get("GEMINI_API_KEY")
-# For this deployment, we will set it directly as requested.
-API_KEY = "AIzaSyDSPSxYzXHwNNV6goNZjDBGyiCAmyz4DJA"
+API_KEY = os.environ.get("GEMINI_API_KEY")
+if not API_KEY:
+    print("WARNING: GEMINI_API_KEY not set. AI generation will fail.")
 genai.configure(api_key=API_KEY)
 
 # Curated list of fun, distinct themes to ensure variety
