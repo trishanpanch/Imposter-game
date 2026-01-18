@@ -61,7 +61,8 @@
     </style>
 </head>
 
-<body class="flex flex-col items-center justify-start pt-20 md:justify-center md:pt-0 p-4 min-h-screen overflow-y-auto">
+<body
+    class="font-light flex flex-col items-center justify-start pt-20 md:justify-center md:pt-0 p-4 min-h-screen overflow-y-auto">
 
     <!-- APP CONTAINER -->
     <div id="appContainer" class="w-full max-w-lg mx-auto relative">
@@ -81,7 +82,7 @@
         <div id="screen-login"
             class="glass-panel rounded-3xl p-8 animate-fade-in relative z-10 flex flex-col items-center justify-center min-h-[400px]">
             <h1
-                class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400 mb-2">
+                class="text-4xl font-light bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400 mb-2">
                 Welcome
             </h1>
             <p class="text-gray-400 mb-8 text-xl">Identify yourself to proceed.</p>
@@ -93,7 +94,7 @@
                     onkeydown="if(event.key === 'Enter') handleLogin()">
 
                 <button onclick="handleLogin()"
-                    class="btn-primary w-full py-3 rounded-xl font-bold text-white shadow-lg">
+                    class="btn-primary w-full py-3 rounded-xl font-light text-white shadow-lg">
                     Enter
                 </button>
             </div>
@@ -102,36 +103,36 @@
         <!-- SCREEN 1: SETUP -->
         <div id="screen-setup" class="hidden-screen glass-panel rounded-3xl p-8 animate-fade-in relative z-10">
             <h1
-                class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400 mb-6">
+                class="text-4xl font-light bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400 mb-6">
                 New Game
             </h1>
 
             <div class="space-y-5">
                 <div>
-                    <label class="block text-lg font-medium text-gray-300 mb-2">Players (One per line)</label>
+                    <label class="block text-lg font-light text-gray-300 mb-2">Players (One per line)</label>
                     <textarea id="inputPlayers" rows="8"
-                        class="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder-gray-600 resize-none font-mono text-xl leading-9 capitalize"
+                        class="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder-gray-600 resize-none  text-xl leading-9 capitalize"
                         autocapitalize="words" placeholder="Aanya&#10;Mateo&#10;Yuki&#10;Kwame"></textarea>
 
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-lg font-medium text-gray-300 mb-2">Imposters</label>
+                        <label class="block text-lg font-light text-gray-300 mb-2">Imposters</label>
                         <input type="number" id="inputImposterCount" value="1" min="1" max="5"
                             class="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-3 text-center focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-lg font-medium text-gray-300 mb-2">Category (Optional)</label>
+                    <label class="block text-lg font-light text-gray-300 mb-2">Category (Optional)</label>
                     <input type="text" id="inputCategory"
                         class="w-full bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-xl text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder-gray-600"
                         placeholder="e.g. Science Fiction, Kitchen, 1990s">
                 </div>
 
                 <button id="btnStart" onclick="startGame()"
-                    class="btn-primary w-full py-4 rounded-xl font-bold text-lg text-white shadow-lg mt-4 flex justify-center items-center gap-2">
+                    class="btn-primary w-full py-4 rounded-xl font-light text-lg text-white shadow-lg mt-4 flex justify-center items-center gap-2">
                     <span id="btnStartText">Start Mission</span>
                     <svg id="loader" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 24 24">
@@ -148,13 +149,13 @@
         <!-- SCREEN 2: PASS DEVICE (SAFE STATE) -->
         <div id="screen-pass"
             class="hidden-screen glass-panel rounded-3xl p-10 text-center animate-fade-in flex flex-col items-center justify-center min-h-[400px]">
-            <div class="mb-4 text-indigo-400 uppercase tracking-widest text-sm font-semibold">Mission Briefing</div>
+            <div class="mb-4 text-indigo-400 uppercase tracking-widest text-sm font-light">Mission Briefing</div>
             <h2 class="text-2xl text-gray-300 mb-2">Pass device to</h2>
-            <h1 id="passPlayerName" class="text-6xl font-extrabold text-white mb-10 tracking-tight">Player Name</h1>
+            <h1 id="passPlayerName" class="text-6xl font-light text-white mb-10 tracking-tight">Player Name</h1>
             <p class="text-lg text-gray-400 mb-8">Make sure your screen is hidden.</p>
 
             <button onclick="revealRole()"
-                class="btn-primary px-8 py-3 rounded-full font-semibold text-white shadow-lg w-full max-w-xs">
+                class="btn-primary px-8 py-3 rounded-full font-light text-white shadow-lg w-full max-w-xs">
                 I am <span id="passPlayerNameBtn">Player</span>
             </button>
 
@@ -171,7 +172,7 @@
             </div>
 
             <button onclick="hideRole()"
-                class="bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded-full font-semibold transition-colors w-full max-w-xs">
+                class="bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded-full font-light transition-colors w-full max-w-xs">
                 Got it (Hide & Pass)
             </button>
 
@@ -179,7 +180,7 @@
 
         <!-- SCREEN 4: VOTING -->
         <div id="screen-voting" class="hidden-screen glass-panel rounded-3xl p-6 animate-fade-in">
-            <h2 class="text-4xl font-bold text-center mb-4">Voting Phase</h2>
+            <h2 class="text-4xl font-light text-center mb-4">Voting Phase</h2>
             <p class="text-center text-gray-400 text-xl mb-8 leading-relaxed">Discuss and find the Imposter.<br>Click a
                 card to reveal the truth.</p>
 
@@ -188,7 +189,7 @@
             </div>
 
             <button onclick="confirmNewGame()"
-                class="mt-8 w-full py-4 rounded-xl border border-white/20 hover:bg-white/10 text-lg font-semibold transition-colors">
+                class="mt-8 w-full py-4 rounded-xl border border-white/20 hover:bg-white/10 text-lg font-light transition-colors">
                 Play Again
             </button>
         </div>
@@ -397,27 +398,27 @@
                 content.innerHTML = `
                     <div class="mb-8">
                         <div class="text-xs text-indigo-300 uppercase tracking-widest mb-1">Category</div>
-                        <div class="text-2xl font-bold text-white bg-indigo-500/20 py-2 px-6 rounded-xl border border-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.3)] inline-block">
+                        <div class="text-2xl font-light text-white bg-indigo-500/20 py-2 px-6 rounded-xl border border-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.3)] inline-block">
                             ${currentCategory}
                         </div>
                     </div>
-                    <div class="text-rose-500 font-bold text-3xl mb-2 animate-pulse">YOU ARE THE IMPOSTER</div>
+                    <div class="text-rose-500 font-light text-3xl mb-2 animate-pulse">YOU ARE THE IMPOSTER</div>
                     <div class="text-gray-400 text-sm">Blend in. Don't let them know.</div>
                     <div class="mt-6 p-4 bg-rose-500/10 border border-rose-500/20 rounded-xl">
                         <div class="text-xs text-rose-300 uppercase">Objective</div>
-                        <div class="text-white font-medium">Guess the Secret Word</div>
+                        <div class="text-white font-light">Guess the Secret Word</div>
                     </div>
                 `;
             } else {
                 content.innerHTML = `
                     <div class="mb-8">
                         <div class="text-xs text-indigo-300 uppercase tracking-widest mb-1">Category</div>
-                        <div class="text-2xl font-bold text-white bg-indigo-500/20 py-2 px-6 rounded-xl border border-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.3)] inline-block">
+                        <div class="text-2xl font-light text-white bg-indigo-500/20 py-2 px-6 rounded-xl border border-indigo-500/50 shadow-[0_0_15px_rgba(99,102,241,0.3)] inline-block">
                             ${currentCategory}
                         </div>
                     </div>
-                    <div class="text-emerald-400 font-bold text-xl mb-1">SECRET WORD</div>
-                    <div class="text-5xl font-extrabold text-white tracking-widest my-6 drop-shadow-lg scale-110">${secretWord}</div>
+                    <div class="text-emerald-400 font-light text-xl mb-1">SECRET WORD</div>
+                    <div class="text-5xl font-light text-white tracking-widest my-6 drop-shadow-lg scale-110">${secretWord}</div>
                     <div class="text-gray-400 text-sm">Find the Imposter who doesn't know this.</div>
                 `;
             }
@@ -437,7 +438,7 @@
                 const card = document.createElement('div');
                 card.className = "bg-slate-800/50 p-6 rounded-xl text-center border border-white/5 cursor-pointer hover:bg-white/5 transition-all";
                 card.innerHTML = `
-                    <div class="text-2xl font-bold text-white mb-2">${p.name}</div>
+                    <div class="text-2xl font-light text-white mb-2">${p.name}</div>
                     <div class="text-base text-gray-500">Tap to reveal</div>
                 `;
 
@@ -445,13 +446,13 @@
                     if (p.isImposter) {
                         card.className = "bg-rose-500/20 border-rose-500 p-6 rounded-xl text-center animate-fade-in";
                         card.innerHTML = `
-                            <div class="text-2xl font-bold text-rose-400 mb-1">${p.name}</div>
-                            <div class="text-lg text-rose-200 font-bold uppercase tracking-wider">IMPOSTER!</div>
+                            <div class="text-2xl font-light text-rose-400 mb-1">${p.name}</div>
+                            <div class="text-lg text-rose-200 font-light uppercase tracking-wider">IMPOSTER!</div>
                         `;
                     } else {
                         card.className = "bg-emerald-500/20 border-emerald-500 p-6 rounded-xl text-center animate-fade-in";
                         card.innerHTML = `
-                            <div class="text-2xl font-bold text-emerald-400 mb-1">${p.name}</div>
+                            <div class="text-2xl font-light text-emerald-400 mb-1">${p.name}</div>
                             <div class="text-lg text-emerald-200">Innocent</div>
                         `;
                     }
@@ -471,7 +472,7 @@
                 if (i < text.length) {
                     titleEl.textContent += text.charAt(i);
                     i++;
-                    setTimeout(type, 500); // 0.5 second pause
+                    setTimeout(type, 250); // 0.25 second pause
                 }
             }
             type();
