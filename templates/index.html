@@ -68,10 +68,10 @@
 
         <!-- HEADER -->
         <header
-            class="absolute top-4 left-0 w-full flex justify-between items-center text-gray-400 text-base tracking-widest uppercase mb-8 px-2 md:-top-16">
-            <span>Imposter</span>
+            class="absolute top-4 left-0 w-full flex justify-center items-center text-gray-400 text-base tracking-widest uppercase mb-8 px-2 md:-top-16 relative">
+            <span id="appTitle" class="font-bold"></span>
             <button id="btnReset" onclick="confirmNewGame()"
-                class="hidden border border-white/20 hover:bg-white/10 px-3 py-1 rounded-full text-xs transition-colors">
+                class="hidden absolute right-0 border border-white/20 hover:bg-white/10 px-3 py-1 rounded-full text-xs transition-colors">
                 New Game
             </button>
         </header>
@@ -461,9 +461,28 @@
         }
 
         // --- INITIALIZATION ---
+        function animateTitle() {
+            const titleEl = document.getElementById('appTitle');
+            const text = "IMPOSTER"; // Uppercase as per style
+            titleEl.textContent = "";
+
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    titleEl.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 1000); // 1 second pause
+                }
+            }
+            type();
+        }
+
+        // Start
+        animateTitle();
         showScreen('login');
         document.getElementById('inputLoginName').focus();
     </script>
 </body>
 
 </html>
+```
