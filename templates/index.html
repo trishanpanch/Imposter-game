@@ -178,7 +178,32 @@
 
         </div>
 
-        <!-- SCREEN 4: VOTING -->
+        <!-- SCREEN 4: DISCUSSION START (NEW) -->
+        <div id="screen-discussion"
+            class="hidden-screen glass-panel rounded-3xl p-10 text-center animate-fade-in flex flex-col items-center justify-center min-h-[400px]">
+            <h2 class="text-4xl font-light text-white mb-6">Discuss</h2>
+
+            <p class="text-xl text-gray-300 mb-6">
+                The game begins now.
+            </p>
+
+            <div class="bg-indigo-500/20 border border-indigo-500/30 rounded-xl p-6 mb-8">
+                <h3 class="text-sm text-indigo-300 uppercase tracking-widest mb-2">First Player</h3>
+                <h1 id="discussionPlayerName" class="text-4xl font-light text-white">Player Name</h1>
+            </div>
+
+            <p class="text-lg text-gray-400 mb-8 leading-relaxed">
+                State your word, then go clockwise around the circle.<br>
+                When you are ready to vote, click below.
+            </p>
+
+            <button onclick="startVoting()"
+                class="btn-primary w-full py-4 rounded-xl font-light text-lg text-white shadow-lg">
+                Proceed to Vote
+            </button>
+        </div>
+
+        <!-- SCREEN 5: VOTING -->
         <div id="screen-voting" class="hidden-screen glass-panel rounded-3xl p-6 animate-fade-in">
             <h2 class="text-4xl font-light text-center mb-4">Voting Phase</h2>
             <p class="text-center text-gray-400 text-xl mb-8 leading-relaxed">Discuss and find the Imposter.<br>Click a
@@ -226,6 +251,7 @@
             setup: document.getElementById('screen-setup'),
             pass: document.getElementById('screen-pass'),
             reveal: document.getElementById('screen-reveal'),
+            discussion: document.getElementById('screen-discussion'),
             voting: document.getElementById('screen-voting')
         };
         const resetBtn = document.getElementById('btnReset');
@@ -380,8 +406,8 @@
 
         function updatePassScreen() {
             if (currentTurn >= players.length) {
-                setupVoting();
-                showScreen('voting');
+                setupDiscussion();
+                showScreen('discussion');
                 return;
             }
             const p = players[currentTurn];
@@ -428,6 +454,18 @@
         function hideRole() {
             currentTurn++;
             updatePassScreen();
+        }
+
+        function setupDiscussion() {
+            // The first player in the array was the first to see their role
+            if (players.length > 0) {
+                document.getElementById('discussionPlayerName').textContent = players[0].name;
+            }
+        }
+
+        function startVoting() {
+            setupVoting();
+            showScreen('voting');
         }
 
         function setupVoting() {
